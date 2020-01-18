@@ -1,0 +1,21 @@
+Exploratory Testing --
+
+a. Test Application in browser
+    1. Try login without registration -- Pass
+    2. Try registration -- Pass
+    3. Try missing fields for registration process -- Pass ( Prompts for filling mandatory fields)
+    4. Try registration of already registered user -- Pass (Throws error indicating user already taken)
+    5. Try overloading fields with more than 255 characters -- Not done
+    6. Try invalid credentials to login -- Pass (Unable to login)
+    7. Different layouts -- Not done
+    8. Different Browsers -- Not done (Only Safari was used)
+b. Test Api using command line (curl)
+    1. Check if we can see list of users using the users api endpoint without Token -- Fail (Exposes user list without token)
+    2. Try to Access user information without token -- Pass (Request returns FAILURE)
+    3. Request Access Token without user information -- Pass ( Request returns FAILURE)
+    4. Request Token for Invalid user -- Pass (request returns Failure)
+    5. Request user details with stale token -- Pass (request returns Invalid Token error)
+    6. Request user details with token generated for another user -- Fail (returns details of other user with token not generated using his credentials)
+    7. Update user details with token generated for another user -- Fail (updates details of other user with token not generated using his credentials)
+
+
