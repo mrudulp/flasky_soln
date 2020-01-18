@@ -1,0 +1,14 @@
+# Curl commands
+
+## For Update
+curl -X PUT -H "Content-Type: application/json" -H "Token:MjU0MjYxNDcxNTg1MTcxMjc3NjI2OTA1ODczNjMwNTEzOTU0ODI=" -d '{"phone":"0987"}' http://localhost:8080/api/users/nonadmin
+
+## For user list
+curl http://localhost:8080/api/users
+curl "Content-Type: application/json" -H "Token:ODg5MDk3NjI0MjI4OTE1MTY2MzczNDA5NzA4Njg2MzA0NzU1Njk=" http://localhost:8080/api/users
+
+## For user information
+curl -H "Content-Type: application/json" -H "Token:ODg5MDk3NjI0MjI4OTE1MTY2MzczNDA5NzA4Njg2MzA0NzU1Njk=" http://localhost:8080/api/users/admin1
+
+## For Token
+curl -u admin1:admin1 http://localhost:8080/api/auth/token
