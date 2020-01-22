@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Test Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<style>
+body {
+    font-family: Calibri, "Trebuchet MS", sans-serif;
+}
+* {
+    word-break: break-all;
+}
+table, td, th, .dataid {
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+    background: #fff;
+}
+section {
+    background: rgba(0, 0, 0, 0.05);
+    margin: 2ex;
+    padding: 1ex;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+h1 {
+    font-size: 130%;
+}
+h2 {
+    font-size: 120%;
+}
+h3 {
+    font-size: 100%;
+}
+h4 {
+    font-size: 85%;
+}
+h1, h2, h3, h4, a[href] {
+    cursor: pointer;
+    color: #0074d9;
+    text-decoration: none;
+}
+h3 strong, a.failed {
+    color: #ff4136;
+}
+.failed {
+    color: #ff4136;
+}
+a.success {
+    color: #3d9970;
+}
+pre {
+    font-family: 'Consolas', 'Deja Vu Sans Mono',
+                 'Bitstream Vera Sans Mono', 'Monaco',
+                 'Courier New', monospace;
+}
+
+.test-details,
+.traceback {
+    display: none;
+}
+section:target .test-details {
+    display: block;
+}
+
+</style>
+</head>
+<body>
+    <h1>Overview</h1>
+    <section>
+        <table>
+            <tr>
+                <th>Class</th>
+                <th class="failed">Fail</th>
+                <th>Error</th>
+                <th>Skip</th>
+                <th>Success</th>
+                <th>Total</th>
+            </tr>
+                <tr>
+                    <td>flask_api_tests</td>
+                    <td class="failed">2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>9</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>flask_wrapper_test</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>7</td>
+                    <td>7</td>
+                </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td class="failed">2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>16</td>
+                <td>18</td>
+            </tr>
+        </table>
+    </section>
+    <h1>Failure details</h1>
+            <section>
+                <h2>flask_api_tests (2 failures, 0 errors)</h2>
+                <div>
+                        <section id="flask_api_tests:test_get_users_list_without_valid_token">
+                            <h3>test_get_users_list_without_valid_token: <strong>builtins.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/opt/miniconda3/envs/crf36/lib/python3.6/unittest/case.py", line 59, in testPartExecutor
+    yield
+  File "/opt/miniconda3/envs/crf36/lib/python3.6/unittest/case.py", line 605, in run
+    testMethod()
+  File "/opt/miniconda3/envs/crf36/lib/python3.6/site-packages/nose/case.py", line 198, in runTest
+    self.test(*self.arg)
+  File "/Users/mphome/devspace/python/robotF/crf/flasky_soln/tests/flask_api_tests.py", line 46, in test_get_users_list_without_valid_token
+    assert response.status_code != 200
+AssertionError: 
+-------------------- >> begin captured logging << --------------------
+urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): localhost:8080
+urllib3.connectionpool: DEBUG: http://localhost:8080 "GET /api/users HTTP/1.1" 200 50
+--------------------- >> end captured logging << ---------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>
+-------------------- >> begin captured logging << --------------------
+urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): localhost:8080
+urllib3.connectionpool: DEBUG: http://localhost:8080 "GET /api/users HTTP/1.1" 200 50
+--------------------- >> end captured logging << ---------------------</pre>
+                            </div>
+                        </section>
+                        <section id="flask_api_tests:test_get_user_info_with_other_user_valid_token">
+                            <h3>test_get_user_info_with_other_user_valid_token: <strong>builtins.AssertionError</strong></h3>
+                            <div class="test-details">
+                                <h4>Traceback</h4>
+                                <pre class="traceback">Traceback (most recent call last):
+  File "/opt/miniconda3/envs/crf36/lib/python3.6/unittest/case.py", line 59, in testPartExecutor
+    yield
+  File "/opt/miniconda3/envs/crf36/lib/python3.6/unittest/case.py", line 605, in run
+    testMethod()
+  File "/opt/miniconda3/envs/crf36/lib/python3.6/site-packages/nose/case.py", line 198, in runTest
+    self.test(*self.arg)
+  File "/Users/mphome/devspace/python/robotF/crf/flasky_soln/tests/flask_api_tests.py", line 68, in test_get_user_info_with_other_user_valid_token
+    assert response.status_code != 200
+AssertionError: 
+-------------------- >> begin captured logging << --------------------
+urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): localhost:8080
+urllib3.connectionpool: DEBUG: http://localhost:8080 "GET /api/auth/token HTTP/1.1" 200 84
+urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): localhost:8080
+urllib3.connectionpool: DEBUG: http://localhost:8080 "GET /api/users/admin HTTP/1.1" 200 120
+--------------------- >> end captured logging << ---------------------
+</pre>
+                                <h4>Details</h4>
+                                <pre>
+-------------------- >> begin captured logging << --------------------
+urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): localhost:8080
+urllib3.connectionpool: DEBUG: http://localhost:8080 "GET /api/auth/token HTTP/1.1" 200 84
+urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): localhost:8080
+urllib3.connectionpool: DEBUG: http://localhost:8080 "GET /api/users/admin HTTP/1.1" 200 120
+--------------------- >> end captured logging << ---------------------</pre>
+                            </div>
+                        </section>
+                </div>
+            </section>
+
+    <h1>All tests</h1>
+    <section>
+        <h2>flask_api_tests (2 failures, 0 errors)</h2>
+        <ul>
+                <li><a class="success">test_get_token_without_valid_credentials</a></li>
+                <li><a class="success">test_get_token_with_valid_credentials</a></li>
+                <li><a class="failed" href="#flask_api_tests:test_get_users_list_without_valid_token">test_get_users_list_without_valid_token</a></li>
+                <li><a class="success">test_get_users_list_with_valid_token</a></li>
+                <li><a class="success">test_get_user_info_without_valid_token</a></li>
+                <li><a class="failed" href="#flask_api_tests:test_get_user_info_with_other_user_valid_token">test_get_user_info_with_other_user_valid_token</a></li>
+                <li><a class="success">test_get_user_info_with_valid_token</a></li>
+                <li><a class="success">test_update_user_info_without_valid_username</a></li>
+                <li><a class="success">test_update_user_info_without_valid_token</a></li>
+                <li><a class="success">test_update_user_info_without_valid_field</a></li>
+                <li><a class="success">test_update_user_info_with_valid_parameters</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2>flask_wrapper_test (0 failures, 0 errors)</h2>
+        <ul>
+                <li><a class="success">test_get_users_list_without_valid_credentials</a></li>
+                <li><a class="success">test_get_users_list_with_valid_credentials</a></li>
+                <li><a class="success">test_get_user_info_without_valid_credentials</a></li>
+                <li><a class="success">test_get_user_info_with_valid_credentials</a></li>
+                <li><a class="success">test_update_user_info_without_valid_credentials</a></li>
+                <li><a class="success">test_update_user_info_without_valid_field</a></li>
+                <li><a class="success">test_update_user_info_with_valid_parameters</a></li>
+        </ul>
+    </section>
+</body>
+<script>
+    Array.prototype.forEach.call(document.querySelectorAll('h1, h2, h3, h4'), function(el) {
+        el.addEventListener('click', function() {
+            el.nextElementSibling.style.display = document.defaultView.getComputedStyle(el.nextElementSibling).display == 'none' ? 'block' : 'none';
+        })
+    })
+</script>
+</html>
